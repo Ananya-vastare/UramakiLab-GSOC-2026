@@ -1,0 +1,174 @@
+/* 1. VARIABLE DEFINITIONS */
+:root {
+  /* High-End Heartset Palette */
+  --color-primary-pink: #e6b8b8;
+  --color-soft-rose: #f2d8d8;
+  --color-deep-rose: #a67c7c;
+  --color-muted-white: #fdf8f8;
+  --color-dusty-charcoal: #1e1e1e; /* Darker for better contrast */
+  --color-logo-accent: #FF3B5C; 
+  
+  /* Glassmorphism & Depth */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow-premium: 0 20px 50px rgba(166, 124, 124, 0.15);
+  
+  /* Border Radius */
+  --radius-xl: 32px;
+  --radius-lg: 20px;
+  --radius-pill: 50px;
+}
+
+/* 2. RESET & PREMIUM BACKGROUND */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  /* Mesh Gradient Background - Very "Design Tool" Aesthetic */
+  background: 
+    radial-gradient(at 0% 0%, hsla(350, 70%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(340, 60%, 92%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 100%, hsla(0, 0%, 98%, 1) 0, transparent 50%);
+  background-color: var(--color-muted-white);
+  color: var(--color-dusty-charcoal);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. TYPOGRAPHY (Figma-style Boldness) */
+.title {
+  color: var(--color-dusty-charcoal);
+  font-weight: 900;
+  font-size: 3.5rem; /* Larger, more authoritative */
+  letter-spacing: -0.04em; /* Tight letter spacing for modern feel */
+  margin: 0;
+  line-height: 1;
+}
+
+
+
+.subtitle {
+  color: var(--color-deep-rose);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+/* 4. LAYOUT */
+.page-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.center-container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* 5. THE MAIN CARD (Glassmorphism) */
+.profile-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+  box-shadow: var(--shadow-premium);
+}
+
+/* 6. THE INPUT BAR (Ultra-Clean) */
+.input-bar {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 10px 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.input-bar:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(255, 59, 92, 0.12);
+  border-color: var(--color-logo-accent);
+}
+
+.input-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-dusty-charcoal);
+  padding: 12px 0;
+}
+
+.input-bar button {
+  background-color: var(--color-logo-accent);
+  color: white;
+  border: none;
+  padding: 18px 48px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.input-bar button:hover {
+  background-color: #e63553;
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 59, 92, 0.25);
+}
+
+/* 7. OUTPUT SECTION */
+.output-container {
+  margin-top: 3.5rem;
+  text-align: left;
+  animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.methodology-tag {
+  background: #1e1e1e; /* Dark tag for "Pro" look */
+  color: white;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.prompt-result-box {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 8. ANIMATIONS */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
